@@ -66,7 +66,7 @@ class _detailsState extends State<details> {
                   height: 15,
                 ),
                 Text(
-                  "${Provider.of<homeProvider>(context).datapick?.details}",
+                  "${Provider.of<homeProvider>(context,listen: false).datapick?.details}",
                   style: TextStyle(color: Colors.black),
                 ),
                 SizedBox(
