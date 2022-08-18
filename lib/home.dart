@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:exam/homeprovider.dart';
 import 'package:exam/modelclass.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 class home extends StatefulWidget {

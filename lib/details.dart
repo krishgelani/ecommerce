@@ -52,7 +52,9 @@ class _detailsState extends State<details> {
                           color: Colors.black,
                           fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 8,),
+                    SizedBox(
+                      height: 8,
+                    ),
                     Text(
                       "₹ ${Provider.of<homeProvider>(context, listen: false).datapick?.price}",
                       style: TextStyle(
@@ -66,56 +68,28 @@ class _detailsState extends State<details> {
                   height: 15,
                 ),
                 Text(
-                  "${Provider.of<homeProvider>(context,listen: false).datapick?.details}",
+                  "${Provider.of<homeProvider>(context, listen: false).datapick?.details}",
                   style: TextStyle(color: Colors.black),
                 ),
                 SizedBox(
                   height: 30,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      child: Row(
-                        children: [
-                          IconButton(
-                              onPressed: () {
-                                Provider.of<homeProvider>(context, listen: false).minus();
-                              },
-                              icon: Icon(
-                                Icons.remove,
-                                color: Colors.black,
-                              )),
-                          Text(
-                            "${Provider.of<homeProvider>(context, listen: true).i}", style: TextStyle(fontSize: 30, color: Colors.green, fontWeight: FontWeight.bold),
-                          ),
-                          IconButton(
-                              onPressed: () {
-                                Provider.of<homeProvider>(context, listen: false).plus();
-                                // Provider.of<homeProvider>(context).total(Provider.of<homeProvider>(context).datapick?.price as int);
-                              },
-                              icon: Icon(
-                                Icons.add,
-                                color: Colors.black,
-                              )),
-                        ],
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Container(
+                    height: 50,
+                    width: 150,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Provider.of<homeProvider>(context, listen: false).cart.add(Provider.of<homeProvider>(context, listen: false).datapick!);
+                        price.add(Provider.of<homeProvider>(context, listen: false).datapick!.price as int);
+                      },
+                      child: Text(
+                        "Add To Cart",
                       ),
+                      style: ElevatedButton.styleFrom(primary: Colors.green),
                     ),
-                    Container(
-                      height: 50,
-                      width: 150,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Provider.of<homeProvider>(context,listen: false).cart.add(Provider.of<homeProvider>(context,listen: false).datapick!);
-                          price.add(Provider.of<homeProvider>(context,listen: false).datapick!.price as int);
-                        },
-                        child: Text(
-                          "Add To Cart",
-                        ),
-                        style: ElevatedButton.styleFrom(primary: Colors.green),
-                      ),
-                    )
-                  ],
+                  ),
                 )
               ],
             ),
